@@ -22,5 +22,24 @@ JOIN categories ON categories."id" = books_categories."categoryId";
 
 --Leitura do livro "Harry Potter" com as informações do autor, renomeando colunas para evitar conflito entre chaves.
 
+SELECT 
+    books."id" AS book_id,
+    books."name" AS book_name,
+    books."pages" AS book_pages,
+    books."createdAt" AS book_created_at,
+    books."updatedAt" AS book_updated_at,
+    authors."id" AS author_id,
+    authors."name" AS author_name,
+    authors."bio" AS author_bio
+FROM 
+    books 
+LEFT JOIN 
+    authors 
+ON 
+    books."authorId" = authors."id"
+WHERE 
+    books."name" = 'Harry Potter';
+
+
 
 
